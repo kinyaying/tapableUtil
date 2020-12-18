@@ -44,7 +44,6 @@ export default () => {
     // 代码片段 -> ast -> 梳理数据给graph绘制
     let graphData = handleCode(code)
     // 重新绘制图层
-    console.log(graphData)
     renderGraph(graphInstance, graphData)
   }
 
