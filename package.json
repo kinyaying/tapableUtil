@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "esprima": "^4.0.1",
+    "estraverse": "^5.2.0",
+    "monaco-editor": "^0.21.2",
+    "monaco-editor-webpack-plugin": "^2.0.0",
+    "mxgraph": "^4.2.2",
+    "umi": "^3.3.1"
+  }
+}
