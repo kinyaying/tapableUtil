@@ -4,6 +4,7 @@ import 'monaco-editor/esm/vs/basic-languages/javascript/javascript.contribution'
 import mxgraph from './graph.js'
 import handleCode from './analysisCode'
 import style from './index.less'
+console.log('index start ')
 const {
   mxGraph,
   mxClient,
@@ -16,19 +17,20 @@ const {
   mxFastOrganicLayout,
 } = mxgraph
 const initCode =
-  'const { SyncHook } = require("tapable");\n' +
-  'const hook = new SyncHook(["name", "age"]);\n' +
+  'const { SyncBailHook } = require("tapable");\n' +
+  'const hook = new SyncBailHook(["name", "age"]);\n' +
   'hook.tap("1", (name, age) => {\n' +
   'console.log(1, name, age);\n' +
-  'return 1;\n' +
   '});\n' +
   'hook.tap("2", (name, age) => {\n' +
   'console.log(2, name, age);\n' +
   'return 2;\n' +
-  '});hook.tap("3", (name, age) => {\n' +
+  '});\n' +
+  'hook.tap("3", (name, age) => {\n' +
   'console.log(3, name, age);\n' +
   'return 3;\n' +
-  '});\nhook.call("test", 10);\n'
+  '});\n' +
+  'hook.call("kinyaying", 10);\n'
 
 export default () => {
   let graphInstance = null
@@ -49,7 +51,7 @@ export default () => {
 
   function createGraph(container) {
     // 初始化图层
-    var graph = new mxGraph(container)
+    let graph = new mxGraph(container)
     graph.setTooltips(true)
     graph.setEnabled(false)
     graph.isCellFoldable = function (cell, collapse) {
@@ -100,6 +102,7 @@ export default () => {
     var parent = graph.getDefaultParent()
     // 清空画布
     graph.removeCells(graph.getChildVertices(graph.getDefaultParent()))
+    // 开始绘制
     graph.getModel().beginUpdate()
     try {
       let x = 200,
@@ -246,7 +249,7 @@ export default () => {
             nextCell: 'start',
           })
           createEndCell()
-          var pointX = 350,
+          var pointX = 157,
             pointY = 0
           for (let i = 0; i < stepList.length; i++) {
             var line = graph.insertEdge(

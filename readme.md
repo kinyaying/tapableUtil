@@ -3,8 +3,10 @@
 ## 功能介绍
 
 功能参考了正则的可视化网页[regulex](<https://jex.im/regulex/#!flags=&re=%5E(a%7Cb)*%3F%24>)
+[页面展示](https://github.com/kinyaying/tapableUtil/blob/master/images/image.png?raw=true)
 
-左侧是代码编辑器，可以输入 tapable 的代码段，点击【生成流程图】按钮，可以生成右侧的流程图。
+[tapable 可视化工具地址](https://kinyaying.github.io/tapableUtil/dist)
+左侧是代码编辑器，可以输入 tapable 的代码段，点击【生成流程图】按钮，生成右侧的流程图。
 
 ## 框架
 
@@ -25,4 +27,10 @@ npx umi dev
 
 ```
 npx umi build
+```
+
+构建不被压缩的代码
+
+```
+COMPRESS=none npx umi build
 ```
