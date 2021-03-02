@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { createBrowserHistory } from '/Users/kin/MyCode/umi-myapp/node_modules/@umijs/runtime';
+import { createBrowserHistory } from '/Users/kin/MyCode/tapableUtil/node_modules/@umijs/runtime';
 
 let options = {
   "basename": "/"
